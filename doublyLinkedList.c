@@ -75,7 +75,7 @@ void searchNode(list* n,node** headPtr,int sData){
         while(n->pos->data != sData){
             n->pos=n->pos->fLink;
             counter++;
-            if(counter == (n->count) ){ //Dongunun listenin sonuna geldiginde sonlanmas˝n˝ sagl˝yor ve sonland˝ysa "0" donduruyor.
+            if(counter == (n->count) ){ //Dongunun listenin sonuna geldiginde sonlanmas√Ωn√Ω sagl√Ωyor ve sonland√Ωysa "0" donduruyor.
                 r=0;
                 break;
             }
