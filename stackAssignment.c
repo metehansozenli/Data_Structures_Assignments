@@ -37,9 +37,7 @@ bool balanced(char p[],int s1){
         else{
             if(s.top==-1)
                 return false;
-            else if(s.data[s.top] == '(' && p[i] == ')')
-                pop();
-            else if(s.data[s.top] == '{' && p[i] == '}')
+            else if(p[i] == ')' || p[i] == '}')
                 pop();
         }
     }
