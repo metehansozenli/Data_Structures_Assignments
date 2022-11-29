@@ -50,7 +50,7 @@ bool balanced(char p[],int s1){
 int main()
 {
     s.top=-1;
-    char p[size]="[({}))}";
+    char p[size]="{(({{()}}))}";
 
     if(balanced(p,strlen(p)))
         printf("Balanced!\n");
