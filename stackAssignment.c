@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#define size 11
+#define size 50
 
 typedef struct{
     char data[size];
@@ -26,20 +26,24 @@ void pop(){
 }
 
 void display(){
-    for(int i=strlen(s.data)-1;i>-1;i--)
+    for(int i=s.top;i>-1;i--)
         printf("%c\n",s.data[i]);
 }
 
 bool balanced(char p[],int s1){
-    for(int i=0;i<s1;i++){
+    int i=0;
+    while(p[i]!='\0'){
         if(p[i] == '(' || p[i] == '{')
             push(p[i]);
         else{
             if(s.top==-1)
                 return false;
-            else if(p[i] == ')' || p[i] == '}')
+            else if(s.data[s.top] == '(' && p[i] == ')' || s.data[s.top] == '{' && p[i] == '}')
                 pop();
+            else
+                return false;
         }
+        i++;
     }
     if(s.top==-1)
         return true;
@@ -50,11 +54,12 @@ bool balanced(char p[],int s1){
 int main()
 {
     s.top=-1;
-    char p[size]="{(({{()}}))}";
+    char p[size]="{({{()}})}";
 
     if(balanced(p,strlen(p)))
         printf("Balanced!\n");
     else
         printf("Unbalanced!\n");
+
     return 0;
 }
